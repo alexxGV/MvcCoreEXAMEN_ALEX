@@ -1,0 +1,58 @@
+﻿@model List<Coche>
+
+
+<h1>Busqueda por modelo</h1>
+
+<form method="post">
+    <label>Modelo</label>
+    <input type="text" class="form-control" name="modelo" />
+
+    <button type="submit" class="btn btn-info">Buscar</button>
+</form>
+
+@if (Model != null)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                IdCOCHE
+            </th>
+            <th>
+                MARCA
+            </th>
+            <th>
+                MODELO
+            </th>
+            <th>
+                CONDUCTOR
+            </th>
+            <th>
+                IMAGEN
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCoche)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conductor)
+                </td>
+                <td>
+                    <img src="@item.Imagen" style="width: 100px; height:auto" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
